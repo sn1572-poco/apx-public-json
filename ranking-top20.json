@@ -1,0 +1,676 @@
+{
+  "schemaVersion": "apx-public-json-1",
+  "status": "FORMAL",
+  "readOnly": true,
+  "run": {
+    "id": "apx-v1.1.4-ca-shares-20260929-20260930T142113Z",
+    "evaluationDate": "2026-09-29",
+    "targetDate": "2026-09-29",
+    "signalDate": "2026-09-29",
+    "createdAt": "2026-09-30T14:21:13+00:00",
+    "publishedAt": "2026-09-30T14:21:22+00:00"
+  },
+  "count": 20,
+  "ranking": [
+    {
+      "rank": 1,
+      "code": "8173",
+      "name": "Joshin Corporation",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 84.86786380753922,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 84.86786380753922,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 20.965517241379306,
+        "liquidity": 9.656426332288401,
+        "margin": 6.788714733542321
+      },
+      "factors": {
+        "revision": 17.914826498422713,
+        "acceleration": 15.778776477146044,
+        "relativeStrength": 20.965517241379306,
+        "liquidity": 9.656426332288401,
+        "quality": 9.857453475486263,
+        "margin": 6.788714733542321,
+        "valuation": 3.9061490492741773
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 2,
+      "code": "5367",
+      "name": "NIKKATO CORPORATION",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 79.82236282548405,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 79.82236282548405,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.53191489361702,
+        "liquidity": 4.914893617021277,
+        "margin": 5.293617021276596
+      },
+      "factors": {
+        "revision": 16.82608695652174,
+        "acceleration": 16.255065856129686,
+        "relativeStrength": 21.53191489361702,
+        "liquidity": 4.914893617021277,
+        "quality": 10.955457009115547,
+        "margin": 5.293617021276596,
+        "valuation": 4.045327471802185
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 3,
+      "code": "3173",
+      "name": "Cominix Co.,Ltd.",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 79.74334117067791,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 79.74334117067791,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.12,
+        "liquidity": 5.192727272727272,
+        "margin": 1.7687272727272727
+      },
+      "factors": {
+        "revision": 17.764044943820224,
+        "acceleration": 16.411775903473323,
+        "relativeStrength": 21.12,
+        "liquidity": 5.192727272727272,
+        "quality": 11.48253828848317,
+        "margin": 1.7687272727272727,
+        "valuation": 6.00352748944664
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 4,
+      "code": "7613",
+      "name": "SIIX CORPORATION",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 79.6631553189744,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 79.6631553189744,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 19.12,
+        "liquidity": 7.269818181818182,
+        "margin": 4.930909090909091
+      },
+      "factors": {
+        "revision": 16.921348314606742,
+        "acceleration": 10.608072687869734,
+        "relativeStrength": 19.12,
+        "liquidity": 7.269818181818182,
+        "quality": 13.418339101843037,
+        "margin": 4.930909090909091,
+        "valuation": 7.39466794192762
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 5,
+      "code": "5388",
+      "name": "KUNIMINE INDUSTRIES CO.,LTD.",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 78.98703751198842,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 78.98703751198842,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 18.72340425531915,
+        "liquidity": 6.421276595744683,
+        "margin": 2.876595744680851
+      },
+      "factors": {
+        "revision": 17.217391304347828,
+        "acceleration": 13.688703140830802,
+        "relativeStrength": 18.72340425531915,
+        "liquidity": 6.421276595744683,
+        "quality": 13.537127371273714,
+        "margin": 2.876595744680851,
+        "valuation": 6.522539099791389
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 6,
+      "code": "4440",
+      "name": "WITZ Corporation",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 80.83187987380563,
+      "overheatPenalty": 3,
+      "scores": {
+        "core": 77.83187987380563,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.573355817875214,
+        "liquidity": 11.708600337268127,
+        "margin": 7.3079258010118044
+      },
+      "factors": {
+        "revision": 17.384615384615383,
+        "acceleration": 10.404948268106164,
+        "relativeStrength": 21.573355817875214,
+        "liquidity": 11.708600337268127,
+        "quality": 8.612176852280484,
+        "margin": 7.3079258010118044,
+        "valuation": 3.840257412648451
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 7,
+      "code": "1518",
+      "name": "MITSUI MATSUSHIMA HOLDINGS CO.,LTD.",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 76.727922579011,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 76.727922579011,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.572815533980584,
+        "liquidity": 9.431067961165049,
+        "margin": 5.755339805825242
+      },
+      "factors": {
+        "revision": 17.12621359223301,
+        "acceleration": 15.518609089824645,
+        "relativeStrength": 21.572815533980584,
+        "liquidity": 9.431067961165049,
+        "quality": 4.1817631939206,
+        "margin": 5.755339805825242,
+        "valuation": 3.142113402061856
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 8,
+      "code": "6463",
+      "name": "TPR CO.,LTD.",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 76.13949814861233,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 76.13949814861233,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 16.95609756097561,
+        "liquidity": 8.87121951219512,
+        "margin": 6.427317073170732
+      },
+      "factors": {
+        "revision": 17.205882352941178,
+        "acceleration": 9.5924543946932,
+        "relativeStrength": 16.95609756097561,
+        "liquidity": 8.87121951219512,
+        "quality": 10.057668256491786,
+        "margin": 6.427317073170732,
+        "valuation": 7.028858998144712
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 9,
+      "code": "4762",
+      "name": "XNET Corporation",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 75.54265980586159,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 75.54265980586159,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 19.736930860033727,
+        "liquidity": 4.394266441821248,
+        "margin": 4.492411467116357
+      },
+      "factors": {
+        "revision": 17.446153846153845,
+        "acceleration": 13.758681961313542,
+        "relativeStrength": 19.736930860033727,
+        "liquidity": 4.394266441821248,
+        "quality": 11.130446932546626,
+        "margin": 4.492411467116357,
+        "valuation": 4.58376829687624
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 10,
+      "code": "4221",
+      "name": "Okura Industrial Co.,Ltd.",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 74.8593162619921,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 74.8593162619921,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 17.356783919597987,
+        "liquidity": 6.298492462311558,
+        "margin": 5.358793969849246
+      },
+      "factors": {
+        "revision": 17.771573604060915,
+        "acceleration": 14.175416187080657,
+        "relativeStrength": 17.356783919597987,
+        "liquidity": 6.298492462311558,
+        "quality": 8.997566251521677,
+        "margin": 5.358793969849246,
+        "valuation": 4.9006898675700645
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 11,
+      "code": "7844",
+      "name": "Marvelous Inc.",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 74.6485950954279,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 74.6485950954279,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 18.178752107925803,
+        "liquidity": 9.118381112984823,
+        "margin": 5.36256323777403
+      },
+      "factors": {
+        "revision": 8.6,
+        "acceleration": 15.3019118308592,
+        "relativeStrength": 18.178752107925803,
+        "liquidity": 9.118381112984823,
+        "quality": 13.596349357792407,
+        "margin": 5.36256323777403,
+        "valuation": 4.490637448091624
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 12,
+      "code": "4075",
+      "name": "Brains Technology,Inc.",
+      "market": "Growth",
+      "confidence": 1,
+      "rawCoreScore": 77.33787235951263,
+      "overheatPenalty": 3,
+      "scores": {
+        "core": 74.33787235951263,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 20.88701517706577,
+        "liquidity": 11.009443507588532,
+        "margin": 6.47150084317032
+      },
+      "factors": {
+        "revision": 8.6,
+        "acceleration": 16.300269905533067,
+        "relativeStrength": 20.88701517706577,
+        "liquidity": 11.009443507588532,
+        "quality": 12.839054146299361,
+        "margin": 6.47150084317032,
+        "valuation": 1.2305887798555821
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 13,
+      "code": "3054",
+      "name": "HYPER Inc.",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 74.21334191917163,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 74.21334191917163,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.36,
+        "liquidity": 7.57090909090909,
+        "margin": 3.037090909090909
+      },
+      "factors": {
+        "revision": 17.764044943820224,
+        "acceleration": 6.230993381362385,
+        "relativeStrength": 21.36,
+        "liquidity": 7.57090909090909,
+        "quality": 13.19981958985896,
+        "margin": 3.037090909090909,
+        "valuation": 5.050484004130061
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 14,
+      "code": "6324",
+      "name": "Harmonic Drive Systems Inc.",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 74.02267132697787,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 74.02267132697787,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 20.390243902439025,
+        "liquidity": 5.9209756097560975,
+        "margin": 5.545365853658536
+      },
+      "factors": {
+        "revision": 17.823529411764707,
+        "acceleration": 14.621973466003316,
+        "relativeStrength": 20.390243902439025,
+        "liquidity": 5.9209756097560975,
+        "quality": 9.35002649708532,
+        "margin": 5.545365853658536,
+        "valuation": 0.37055658627087207
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 15,
+      "code": "1783",
+      "name": "Fantasista Co.,Ltd.",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 76.99669137354833,
+      "overheatPenalty": 3,
+      "scores": {
+        "core": 73.99669137354833,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.484375,
+        "liquidity": 9.80625,
+        "margin": 6.03125
+      },
+      "factors": {
+        "revision": 8.121951219512196,
+        "acceleration": 15.065040650406504,
+        "relativeStrength": 21.484375,
+        "liquidity": 9.80625,
+        "quality": 13.951460867265997,
+        "margin": 6.03125,
+        "valuation": 2.536363636363636
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 16,
+      "code": "3422",
+      "name": "J-MAX Co.,Ltd.",
+      "market": "Standard",
+      "confidence": 1,
+      "rawCoreScore": 73.92135058224252,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 73.92135058224252,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.48235294117647,
+        "liquidity": 8.703529411764706,
+        "margin": 3.1905882352941184
+      },
+      "factors": {
+        "revision": 8.470588235294118,
+        "acceleration": 16.736961544809375,
+        "relativeStrength": 21.48235294117647,
+        "liquidity": 8.703529411764706,
+        "quality": 11.154977272727274,
+        "margin": 3.1905882352941184,
+        "valuation": 4.182352941176471
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 17,
+      "code": "3793",
+      "name": "Drecom Co.,Ltd.",
+      "market": "Growth",
+      "confidence": 1,
+      "rawCoreScore": 73.88413349879497,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 73.88413349879497,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 20.070826306913997,
+        "liquidity": 9.270151770657673,
+        "margin": 4.847217537942663
+      },
+      "factors": {
+        "revision": 8.6,
+        "acceleration": 15.130038236617184,
+        "relativeStrength": 20.070826306913997,
+        "liquidity": 9.270151770657673,
+        "quality": 13.021104502906999,
+        "margin": 4.847217537942663,
+        "valuation": 2.944795143756447
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 18,
+      "code": "9759",
+      "name": "NSD CO.,LTD.",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 73.0395483886106,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 73.0395483886106,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 16.472175379426645,
+        "liquidity": 9.783136593591907,
+        "margin": 6.629342327150084
+      },
+      "factors": {
+        "revision": 17.26153846153846,
+        "acceleration": 10.05948043184885,
+        "relativeStrength": 16.472175379426645,
+        "liquidity": 9.783136593591907,
+        "quality": 8.059199394277016,
+        "margin": 6.629342327150084,
+        "valuation": 4.774675800777635
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 19,
+      "code": "5574",
+      "name": "ABEJA,Inc.",
+      "market": "Growth",
+      "confidence": 1,
+      "rawCoreScore": 72.88735106644062,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 72.88735106644062,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 18.586846543001688,
+        "liquidity": 9.825632377740305,
+        "margin": 5.515008431703205
+      },
+      "factors": {
+        "revision": 8.6,
+        "acceleration": 15.75214799820063,
+        "relativeStrength": 18.586846543001688,
+        "liquidity": 9.825632377740305,
+        "quality": 13.474675538049919,
+        "margin": 5.515008431703205,
+        "valuation": 1.1330401777448622
+      },
+      "missingFactors": []
+    },
+    {
+      "rank": 20,
+      "code": "2492",
+      "name": "Infomart Corporation",
+      "market": "Prime",
+      "confidence": 1,
+      "rawCoreScore": 72.35836561795621,
+      "overheatPenalty": 0,
+      "scores": {
+        "core": 72.35836561795621,
+        "execution": null,
+        "technical": null
+      },
+      "scoreAvailability": {
+        "execution": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC",
+        "technical": "NOT_DEFINED_AS_NUMERIC_SCORE_IN_FORMAL_SPEC"
+      },
+      "technicalComponents": {
+        "relativeStrength": 21.832061068702288,
+        "liquidity": 9.648091603053436,
+        "margin": 6.677862595419847
+      },
+      "factors": {
+        "revision": 8.669884169884169,
+        "acceleration": 12.700978461031047,
+        "relativeStrength": 21.832061068702288,
+        "liquidity": 9.648091603053436,
+        "quality": 12.53555123230204,
+        "margin": 6.677862595419847,
+        "valuation": 0.2939364875633819
+      },
+      "missingFactors": []
+    }
+  ]
+}
