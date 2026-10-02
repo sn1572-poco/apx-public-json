@@ -16,6 +16,24 @@ FACTORS = ('revision', 'acceleration', 'relativeStrength', 'liquidity', 'quality
 TECHNICAL = ('relativeStrength', 'liquidity', 'margin')
 
 
+def execution_projection(stock):
+    if stock.get('executionDecision') not in ('BUY', 'WAIT', 'AVOID', 'UNAVAILABLE'):
+        return {'executionDecision': 'UNAVAILABLE', 'executionReasons': ['日次Execution判定が未生成'],
+                'entryZone': None, 'stopLossReference': None, 'positionSizeReference': None}
+    result = {k: stock[k] for k in ('executionDecision', 'executionReasons')}
+    for key, fields in {
+        'entryZone': ('lowerJpy', 'upperJpy', 'basis', 'referenceOnly'),
+        'stopLossReference': ('priceJpy', 'distanceFraction', 'basis', 'relativeTo', 'referenceOnly'),
+        'positionSizeReference': ('riskBudgetFraction', 'maxPortfolioWeight', 'maxOrderValueJpy', 'formula', 'shares', 'referenceOnly'),
+    }.items():
+        value = stock.get(key)
+        result[key] = {k: value[k] for k in fields if k in value} if isinstance(value, dict) else None
+    for key in ('executionRuleVersion', 'executionLabel', 'executionReasonCodes', 'liveOrderAuthorized'):
+        if key in stock:
+            result[key] = stock[key]
+    return result
+
+
 def project(ranking: dict) -> dict[str, dict]:
     if ranking.get('status') != 'FORMAL':
         raise ValueError('FORMAL_REQUIRED')
@@ -42,7 +60,8 @@ def project(ranking: dict) -> dict[str, dict]:
         public.append({'rank': rank, 'code': code, 'name': s['name'], 'market': s['market'],
                        'confidence': s['confidence'], 'coreScore': s['score'],
                        'overheatPenalty': s['penalty'], 'factors': factors,
-                       'technicalComponents': technical, 'missingFactors': list(s['missingFactors'])})
+                       'technicalComponents': technical, 'missingFactors': list(s['missingFactors']),
+                       **execution_projection(s)})
     result = {
         'data/top100.json': {**metadata, 'count': 100, 'stocks': public[:100]},
         'data/index.json': {**metadata, 'count': len(public), 'stocks': [
