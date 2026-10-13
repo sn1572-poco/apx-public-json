@@ -91,6 +91,8 @@ def build_site(source: Path, output: Path) -> dict:
                 or validation.get('liveOrderAuthorized') is not False):
             raise ValueError('RESEARCH_RUN_MISMATCH')
         assets += ('research.html', 'research.js', 'data/research/validation.json')
+        if (source / 'health.js').is_file():
+            assets += ('health.js',)
     for name in assets:
         if not (source / name).is_file():
             raise ValueError('PUBLIC_ASSET_MISSING')

@@ -7,9 +7,10 @@ let data, model = 'Core';
 function text(tag, value, css) { const node = document.createElement(tag); node.textContent = value; if (css) node.className = css; return node; }
 function cell(tr, value, css) { tr.append(text('td', value, css)); }
 const labels = {Core:'Core（既存）', Aggressive:'Aggressive（実験）', LeadingCandidate:'急上昇・先行検知候補（実験）'};
+function freshness(value, now = new Date()) { return apxStaleMessage(value, now); }
 function ranking() {
   const m = data.models?.[model]; el('ranking').replaceChildren();
-  el('model-note').textContent = m ? `${m.modelVersion} ｜記録 ${m.predictedAt} ｜独立順位 ${m.rankedCount}件 ｜${m.sourceStatusReason || '同一FORMAL runの保存済み原本から算出'} ｜先頭100件表示` : 'このrunの実験データは利用できません。';
+  el('model-note').textContent = m ? `${m.modelVersion} ｜記録 ${m.predictedAt} ｜公開確認 ${m.publishedAt || '未確認（成績評価不可）'} ｜最初の売買可能時刻の下限 ${m.firstTradableAt || '未確定'} ｜独立順位 ${m.rankedCount}件 ｜${m.sourceStatusReason || '同一FORMAL runの保存済み原本から算出'} ｜先頭100件表示` : 'このrunの実験データは利用できません。';
   const query = el('search').value.toLowerCase();
   for (const s of m?.stocks || []) {
     if (!`${s.code} ${s.name}`.toLowerCase().includes(query)) continue;
@@ -42,7 +43,9 @@ async function main() {
   data = await r.json(); const latest = await l.json();
   if (latest.status !== 'FORMAL' || data.status !== 'EXPERIMENTAL' || data.sourceRunId !== latest.sourceRunId || data.evaluationDate !== latest.evaluationDate || data.liveOrderAuthorized !== false) throw new Error('FORMAL runと検証データが一致しないため表示を停止しました。');
   el('metadata').replaceChildren();
-  for (const [k,v] of [['データ基準日',data.evaluationDate],['予測記録日時',data.predictedAt],['公表情報cutoff',data.disclosureCutoff],['成績用価格の最終日',data.outcomePriceAsOf],['検証ステータス',data.validationStatus],['run ID',data.sourceRunId]]) el('metadata').append(text('p',`${k}: ${v || '不明'}`));
+  el('freshness').textContent = freshness(data);
+  setInterval(()=>{el('freshness').textContent=freshness(data);},60000);
+  for (const [k,v] of [['データ基準日',data.evaluationDate],['予測記録日時',data.predictedAt],['公表情報cutoff',data.disclosureCutoff],['成績用価格の最終日',data.outcomePriceAsOf],['成績レポート更新日時',data.generatedAt],['検証ステータス',data.validationStatus],['run ID',data.sourceRunId]]) el('metadata').append(text('p',`${k}: ${v || '不明'}`));
   for (const m of Object.keys(labels)) { const b = text('button',labels[m]); b.dataset.model = m; b.onclick=()=>{model=m;ranking();}; el('tabs').append(b); }
   el('search').oninput=ranking; el('origin').onchange=performance; el('group').onchange=performance;
   const ul = document.createElement('ul');
