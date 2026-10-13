@@ -82,6 +82,15 @@ def build_site(source: Path, output: Path) -> dict:
     # Explicit asset list: never publish git metadata, credentials, or tools.
     assets = ('index.html', 'index.css', 'viewer.js', '.nojekyll', 'latest.json',
               'ranking-top20.json', 'data/ranking.json', 'data/execution.json')
+    research = source / 'data/research/validation.json'
+    if research.is_file():
+        validation = json.loads(research.read_text(encoding='utf-8'))
+        if (validation.get('sourceRunId') != ranking['sourceRunId']
+                or validation.get('evaluationDate') != ranking['asOf']
+                or validation.get('status') != 'EXPERIMENTAL'
+                or validation.get('liveOrderAuthorized') is not False):
+            raise ValueError('RESEARCH_RUN_MISMATCH')
+        assets += ('research.html', 'research.js', 'data/research/validation.json')
     for name in assets:
         if not (source / name).is_file():
             raise ValueError('PUBLIC_ASSET_MISSING')
