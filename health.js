@@ -18,6 +18,9 @@ function apxStaleMessage(value, now = new Date()) {
 async function apxPublicHealth() {
   const banner = document.getElementById('apx-data-health');
   if (!banner) return;
+  // Reserve normal layout space: the warning must not cover the Core header.
+  banner.style.position='relative';banner.style.left='auto';banner.style.right='auto';
+  document.body.prepend(banner);
   try {
     const responses = await Promise.all([fetch('./latest.json',{cache:'no-cache'}),fetch('./data/research/validation.json',{cache:'no-cache'})]);
     if (responses.some(r=>!r.ok)) throw new Error('HTTP_FAILED');
