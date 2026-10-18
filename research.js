@@ -45,13 +45,14 @@ async function main() {
   el('metadata').replaceChildren();
   el('freshness').textContent = freshness(data);
   setInterval(()=>{el('freshness').textContent=freshness(data);},60000);
-  for (const [k,v] of [['データ基準日',data.evaluationDate],['予測記録日時',data.predictedAt],['公表情報cutoff',data.disclosureCutoff],['成績用価格の最終日',data.outcomePriceAsOf],['成績レポート更新日時',data.generatedAt],['検証ステータス',data.validationStatus],['run ID',data.sourceRunId]]) el('metadata').append(text('p',`${k}: ${v || '不明'}`));
+  for (const [k,v] of [['データ基準日',data.evaluationDate],['予測記録日時',data.predictedAt],['公表情報cutoff',data.disclosureCutoff],['成績用価格の最終日',data.outcomePriceAsOf],['成績レポート更新日時',data.performanceGeneratedAt || data.generatedAt],['検証ステータス',data.validationStatus],['run ID',data.sourceRunId]]) el('metadata').append(text('p',`${k}: ${v || '不明'}`));
   for (const m of Object.keys(labels)) { const b = text('button',labels[m]); b.dataset.model = m; b.onclick=()=>{model=m;ranking();}; el('tabs').append(b); }
   el('search').oninput=ranking; el('origin').onchange=performance; el('group').onchange=performance;
   const ul = document.createElement('ul');
   for (const s of data.performance?.pairedComparisons || []) ul.append(text('li',`${labels[s.model]} ${s.horizon}営業日: Core差 ${pct(s.meanDeltaVersusCore)} / 同時比較日 ${s.matchedSignalDates} / ${s.status}`));
   el('comparison').append(ul);
   el('quality').append(text('p',`${data.performance?.adoption || '改善不明'}：${data.validationStatus}。本番モデルの置換・注文は無効です。`,'warning'));
+  if (data.performanceUpdateStatus === 'PENDING') el('quality').append(text('p',`新しい予測は確定済みです。成績評価は更新待ちです（表示中の成績用価格: ${data.outcomePriceAsOf || '未取得'}）。`,'warning'));
   el('quality').append(text('p','TOPIX: ' + (data.performance?.topix?.status || 'UNAVAILABLE')));
   const unavailable = (data.performance?.cohortAvailability || []).filter(c=>c.inputStatus !== 'VERIFIED');
   el('quality').append(text('p',`時点原本を再現できないモデル・評価日: ${unavailable.length}件（欠損を補完していません）`));
