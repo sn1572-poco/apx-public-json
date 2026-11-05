@@ -107,6 +107,25 @@ def build_site(source: Path, output: Path) -> dict:
         target = output / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(value, ensure_ascii=False, allow_nan=False, separators=(',', ':')) + '\n', encoding='utf-8')
+    # The independent daily analysis has no route into FORMAL projections.
+    provisional = source / 'provisional'
+    if (provisional / 'latest.json').is_file():
+        meta = json.loads((provisional / 'latest.json').read_text(encoding='utf-8'))
+        rows = json.loads((provisional / 'ranking.json').read_text(encoding='utf-8'))
+        if (meta.get('status') != 'PROVISIONAL' or rows.get('status') != 'PROVISIONAL'
+                or meta.get('isFormal') is not False or meta.get('liveOrderAuthorized') is not False
+                or rows.get('sourceRunId') != meta.get('sourceRunId')):
+            raise ValueError('PROVISIONAL_ASSET_MISMATCH')
+        for path in provisional.rglob('*'):
+            if not path.is_file():
+                continue
+            relative = path.relative_to(provisional).as_posix()
+            if (path.is_symlink() or not re.fullmatch(
+                    r'(?:index\.html|(?:latest|ranking)\.json|runs/[A-Za-z0-9_.-]+/(?:latest|ranking)\.json)', relative)):
+                raise ValueError('PROVISIONAL_ASSET_ALLOWLIST')
+            target = output / 'provisional' / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(path, target)
     return {'status': 'FORMAL', 'sourceRunId': ranking['sourceRunId'], 'evaluationDate': ranking['asOf'],
             'stockCount': len(ranking['stocks']), 'generatedFiles': len(payloads)}
 

@@ -1,0 +1,15 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AP-X 暫定評価・非FORMAL</title>
+<style>body{max-width:1100px;margin:24px auto;padding:16px;background:#101827;color:#e2e8f0;font:16px/1.7 sans-serif}h1{font-size:24px}aside{padding:14px;background:#78350f}a{color:#93c5fd}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:8px;border-bottom:1px solid #334155}input{padding:10px;width:80%}</style>
+<h1>AP-X 暫定評価・非FORMAL</h1><aside>正式予測・正式成績への登録なし。売買執行の許可なし。</aside><p id="health" role="alert">取得中…</p><div id="meta"></div><p><input id="query" aria-label="銘柄検索" placeholder="コード・銘柄名で検索"></p><table><thead><tr><th>参考順位</th><th>銘柄</th><th>元得点</th><th>信頼度</th></tr></thead><tbody id="rows"></tbody></table><p><a href="latest.json">評価情報JSON</a> · <a href="ranking.json">全参考銘柄JSON</a> · <a href="../">保存中のFORMAL</a></p>
+<script>
+const cell=(s)=>{const t=document.createElement('td');t.textContent=s;return t};
+Promise.all([fetch('latest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()}),fetch('ranking.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()})]).then(([m,r])=>{
+ if(m.status!=='PROVISIONAL'||r.status!=='PROVISIONAL'||m.sourceRunId!==r.sourceRunId)throw Error();
+ const now=new Date(),j=new Date(now.getTime()+9*3600000);j.setUTCDate(j.getUTCDate()-1);
+ let d;do{d=j.toISOString().slice(0,10);if(j.getUTCDay()!==0&&j.getUTCDay()!==6&&!m.calendar.closedDates.includes(d))break;j.setUTCDate(j.getUTCDate()-1)}while(true);
+ const fresh=d===m.evaluationDate&&d>=m.calendar.firstDate&&d<=m.calendar.lastDate;
+ document.getElementById('health').textContent=(fresh?'日付確認済み':'鮮度警告：期待評価日 '+d)+' ／ 実データ '+m.evaluationDate+' ／ 生成 '+m.generatedAt;
+ document.getElementById('meta').textContent='評価日 '+m.evaluationDate+' ／ 開示締切 '+m.disclosureCutoff+' ／ 品質率 '+(m.coverage.highConfidenceRatio*100).toFixed(4)+'% ('+m.coverage.highConfidenceCount+'/'+m.coverage.includedCount+') ／ 母集団 '+m.coverage.masterCount+' ／ 表示 '+r.stocks.length+' ／ 未充足理由 '+(m.unmetReasons.join('、')||'元スキャンは基準達成。公開は独立した暫定評価として保存');
+ const show=()=>{const q=document.getElementById('query').value.toLowerCase(),b=document.getElementById('rows');b.replaceChildren();for(const s of r.stocks.filter(s=>(s.code+' '+s.name).toLowerCase().includes(q))){const tr=document.createElement('tr');[s.rank,s.code+' '+s.name,s.score.toFixed(2),(s.confidence*100).toFixed(0)+'%'].forEach(x=>tr.append(cell(x)));b.append(tr)}};document.getElementById('query').oninput=show;show();
+}).catch(()=>document.getElementById('health').textContent='取得失敗または評価情報不整合。最新評価として利用できません。');
+</script></html>
