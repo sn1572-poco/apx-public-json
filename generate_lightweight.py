@@ -121,11 +121,22 @@ def build_site(source: Path, output: Path) -> dict:
                 continue
             relative = path.relative_to(provisional).as_posix()
             if (path.is_symlink() or not re.fullmatch(
-                    r'(?:index\.html|(?:latest|ranking)\.json|runs/[A-Za-z0-9_.-]+/(?:latest|ranking)\.json)', relative)):
+                    r'(?:index\.html|(?:latest|ranking)\.json|runs/[A-Za-z0-9_.-]+/(?:latest|ranking|history)\.json)', relative)):
                 raise ValueError('PROVISIONAL_ASSET_ALLOWLIST')
             target = output / 'provisional' / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(path, target)
+    # New daily paths are independent of the preserved legacy FORMAL site.
+    for directory,pattern in {
+        'formal':r'(?:latest|ranking)\.json|runs/[A-Za-z0-9_.-]+/(?:latest|ranking|validation|history)\.json',
+        'operations':r'(?:latest|calendar)\.json|runs/[A-Za-z0-9_.-]+\.json',
+        'daily':r'index\.html|viewer\.js',
+    }.items():
+        for path in (source/directory).rglob('*'):
+            if not path.is_file():continue
+            relative=path.relative_to(source/directory).as_posix()
+            if path.is_symlink() or not re.fullmatch(pattern,relative):raise ValueError('DAILY_ASSET_ALLOWLIST')
+            target=output/directory/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
     return {'status': 'FORMAL', 'sourceRunId': ranking['sourceRunId'], 'evaluationDate': ranking['asOf'],
             'stockCount': len(ranking['stocks']), 'generatedFiles': len(payloads)}
 

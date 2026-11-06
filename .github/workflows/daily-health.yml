@@ -1,0 +1,42 @@
+name: AP-X Daily Health
+on:
+  schedule:
+    - cron: '37 0 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      drill:
+        description: 'Exercise a stale-data failure without changing live state'
+        type: boolean
+        default: false
+  workflow_run:
+    workflows: ['Publish FORMAL dashboard and lightweight JSON']
+    types: [completed]
+permissions:
+  contents: write
+concurrency:
+  group: apx-external-health
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check GitHub and HTTPS from outside Windows
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APX_MONITOR_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          APX_DRILL: ${{ inputs.drill }}
+          APX_DEPLOY_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+        run: |
+          if [ "$APX_DRILL" = "true" ]; then
+            python3 apx_monitor.py --simulate-stale
+          else
+            python3 apx_monitor.py --write-state
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apx-external-health
+          path: apx-monitor-result.json
+          retention-days: 14
