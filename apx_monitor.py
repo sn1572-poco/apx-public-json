@@ -62,6 +62,9 @@ def inspect(*,now=None,fetch=get,commit=None):
   if github!=public:result['issues'].append('PAGES_COMMIT_MISMATCH_'+name.upper())
   data[name]=github
  result['issues']+=validate(ops,data['latest'],data['ranking'],data['history'],now=now,calendar=calendar)
+ result['dailyStatus']='FRESH'if ops.get('evaluationDate')==expected(now,calendar)[0]else'STALE'
+ result['formalStatus']='CURRENT'if ops.get('publicationMode')=='FORMAL'else'WITHHELD'
+ if ops.get('publicationMode')=='PROVISIONAL':result['issues'].append('FORMAL_WITHHELD_SEE_REASONS')
  if os.environ.get('APX_DEPLOY_CONCLUSION') not in (None,'','success'):
   result['issues'].append('PAGES_DEPLOYMENT_FAILED')
  if ops['publicationMode']=='FORMAL':
