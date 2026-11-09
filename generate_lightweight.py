@@ -103,6 +103,10 @@ def build_site(source: Path, output: Path) -> dict:
         target = output / name
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source / name, target)  # original bytes, no UI/data rebuild
+    # The former entrance is archived byte-for-byte; the root may now direct
+    # users to the live daily view without touching historical FORMAL JSON.
+    if (source/'legacy.html').is_file():
+        shutil.copyfile(source/'legacy.html',output/'legacy.html')
     for name, value in payloads.items():
         target = output / name
         target.parent.mkdir(parents=True, exist_ok=True)
