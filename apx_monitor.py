@@ -87,6 +87,7 @@ def watchdog(*,now=None,fetch=get):
  value=fetch(RAW+'apx-monitor-state/health.json');checked=datetime.fromisoformat(value['checkedAt']).astimezone(JST)
  issues=[]
  if checked.date()!=local.date()or checked.time()<time(9,30):issues.append('PRIMARY_MONITOR_DID_NOT_RUN')
+ if (now-datetime.fromisoformat(value['checkedAt'])).total_seconds()>90*60:issues.append('PRIMARY_MONITOR_HEARTBEAT_EXPIRED')
  if value.get('status')!='HEALTHY':issues.append('PRIMARY_MONITOR_UNHEALTHY')
  return {'schemaVersion':'apx-watchdog-1','status':'FAILED'if issues else'HEALTHY','checkedAt':now.isoformat(),'issues':issues,'primaryCheckedAt':value.get('checkedAt')}
 

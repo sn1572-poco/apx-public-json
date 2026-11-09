@@ -1,7 +1,7 @@
 name: AP-X Daily Health
 on:
   schedule:
-    - cron: '37 0 * * 1-5'
+    - cron: '37 0-9 * * 1-5'
   workflow_dispatch:
     inputs:
       drill:
