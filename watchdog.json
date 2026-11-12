@@ -1,1 +1,1 @@
-{"schemaVersion":"apx-watchdog-1","status":"FAILED","checkedAt":"2026-11-11T16:16:24.358151+00:00","issues":["PRIMARY_MONITOR_DID_NOT_RUN","PRIMARY_MONITOR_UNHEALTHY"],"primaryCheckedAt":"2026-11-11T15:34:52.251641+00:00"}
+{"schemaVersion":"apx-watchdog-1","status":"HEALTHY","checkedAt":"2026-11-12T08:24:39.352487+00:00","issues":[],"primaryCheckedAt":"2026-11-12T07:39:10.233333+00:00"}
