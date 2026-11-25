@@ -11,11 +11,10 @@ concurrency:
   group: pages
   cancel-in-progress: false
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      publish: ${{ steps.formal.outputs.publish }}
     steps:
       - uses: actions/checkout@v6
       - name: Generate only from FORMAL ranking
@@ -36,6 +35,14 @@ jobs:
         if: steps.formal.outputs.publish == 'true'
         with:
           path: _site
-      - uses: actions/deploy-pages@v4
-        if: steps.formal.outputs.publish == 'true'
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v5
         id: deployment
